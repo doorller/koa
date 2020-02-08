@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/common.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">我是呵呵</h1>
+    <ul style="margin-left:35%;">
+        <li>
+            <span>标题：</span>
+            <input class="title" type="text">
+        </li>
+        <li class="mt10">
+            <span>内容：</span>
+            <input class="content" type="text">
+        </li>
+        <li class="mt10">
+            <button class="min2">2分钟</button>
+            <button class="min5">5分钟</button>
+            <button class="min30">30分钟</button>
+        </li>
+        <li class="mt10">
+            <span>时间：</span>
+            <input style="width: 186px;" class="time" type="time">
+        </li>
+       
+    </ul>
+    <button style="margin-left: 45%;" class="btn-blue add">确认添加</button>
+    <div>
+
+    </div>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+        // console.log('%c%s', 'color: #aa00ff', title);
+        // let content = $('.content').val()
+        // console.log('%c%s', 'color: #00a3cc', content);
+        let content;
+        let title;
+        let time
+        $('.add').click(function(){
+            content = $('.content').val()
+            title = $('.title').val()
+            time = $('.time').val()
+            let dateJson=new Date().toJSON()
+            let date = dateJson.slice(0,10)
+            console.log('%c%s', 'color: #733d00', date);
+            console.log('%c%s', 'color: #e50000', time);
+            let show = new Date(date+' '+time).valueOf()
+            console.log('%c%s', 'color: #00bf00', show);
+            setTimeout(()=>{
+
+            })
+        })
+        var options = {
+            //   dir: "auto", // 文字方向
+            body: "通知：你好世界", // 通知主体
+            // tag: 'a',
+            image: '',
+            data: {
+                url: window.location.href
+            },
+            // requireInteraction: true, // 不自动关闭通知
+            // 通知图标 
+            icon: ""
+        };
+        // notifyMe('这是通知的标题', options);
+        function notifyMe(title, options) {
+            // 先检查浏览器是否支持
+            if (!window.Notification) {
+                console.log('浏览器不支持通知');
+            } else {
+                // 检查用户曾经是否同意接受通知
+                if (Notification.permission === 'granted') {
+                    var notify = new Notification(title, options); // 显示通知
+                    notify.onclick = function () {
+                        // window.open(notify.data.url, '_parent')
+                    }
+
+                } else if (Notification.permission === 'default') {
+                    // 用户还未选择，可以询问用户是否同意发送通知
+                    Notification.requestPermission().then(permission => {
+                        if (permission === 'granted') {
+                            // console.log('用户同意授权');
+                            var notification = new Notification(title, options); // 显示通知
+                        } else if (permission === 'default') {
+                            console.warn('用户关闭授权 未刷新页面之前 可以再次请求授权');
+                        } else {
+                            // denied
+                            console.log('用户拒绝授权 不能显示通知');
+                        }
+                    });
+                } else {
+                    // denied 用户拒绝
+                    console.log('用户曾经拒绝显示通知');
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

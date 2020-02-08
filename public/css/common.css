@@ -1,0 +1,58 @@
+button{
+    height: 28px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #4c8bfd;
+    border: 1px solid #4c8bfd;
+    background: #fff;
+    border-radius: 5px;
+}
+button:active {
+    opacity: .8;
+}
+li {
+    list-style: none;
+}
+.btn-blue {
+    background: #4c8bfd;
+    color: #fff;
+}
+.btn-red {
+    background: #fc513a;
+    color: #fff;
+}
+.btn-green {
+    background: #3afc84;
+    color: #fff;
+}
+input {
+    /* outline: none; */
+    box-sizing: border-box;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+input:focus {
+    /* outline: none; */
+    border: 1px solid #4c8bfd;
+}
+.mt5 {
+    margin-top: 5px;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.mt20 {
+    margin-top: 20px;
+}
+.mr5 {
+    margin-right: 5px;
+}
+.mr10 {
+    margin-right: 10px;
+}
+.mr20 {
+    margin-right: 20px;
+}
