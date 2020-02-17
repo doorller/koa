@@ -10,6 +10,8 @@ async function test() {
     console.log(v)
 }
 test();
+
+
 /**
  *
  */
